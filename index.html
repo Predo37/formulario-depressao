@@ -1,74 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <!-- Meta tags obrigatórias -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Questionário de Depressão</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta http-equiv="pragma" content="no-cache"/>
+  <title>Questionário</title>
 
-    <!-- Estilos para responsividade -->
-    <style>
-      html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #000;
-      }
-      #canvas {
-        display: block;
-        width: 100vw;
-        height: 100vh;
-        object-fit: contain;
-      }
-      /* Fullscreen WebKit */
-      :-webkit-full-screen #canvas,
-      :-webkit-full-screen {
-        width: 100%;
-        height: 100%;
-      }
-      /* Runner default styles */
-      canvas {
-        image-rendering: optimizeSpeed;
-        -webkit-interpolation-mode: nearest-neighbor;
-        -ms-touch-action: none;
-        touch-action: none;
-        border: 0;
-      }
-      div.gm4html5_div_class {
-        margin: 0;
-        padding: 0;
-        border: 0;
-      }
-    </style>
-  </head>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
 
-  <body>
-    <div class="gm4html5_div_class" id="gm4html5_div_id">
-      <!-- Canvas do jogo -->
-      <canvas id="canvas" width="800" height="1131">
-        Seu navegador não suporta HTML5 Canvas.
-      </canvas>
-    </div>
+    .gm4html5_div_class {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+    }
 
-    <!-- Scripts do GameMaker export -->
-    <script type="text/javascript" src="html5game/questionario depressao.js?cachebust"></script>
-    <script>
-      // Inicializa o jogo após carregar
-      window.onload = function() {
-        GameMaker_Init();
-        resizeCanvas();
-      };
-      // Ajusta tamanho do canvas em caso de redimensionamento
-      function resizeCanvas() {
-        const c = document.getElementById('canvas');
-        c.style.width = window.innerWidth + 'px';
-        c.style.height = window.innerHeight + 'px';
-      }
-      window.addEventListener('resize', resizeCanvas);
-    </script>
-  </body>
+    canvas {
+      aspect-ratio: 800 / 1131;
+      width: 100%;
+      height: auto;
+      max-height: 100vh;
+      image-rendering: optimizeSpeed;
+      -webkit-interpolation-mode: nearest-neighbor;
+      -ms-touch-action: none;
+      touch-action: none;
+      display: block;
+      background: #000;
+    }
+
+    :-webkit-full-screen #canvas,
+    :-webkit-full-screen {
+      width: 100%;
+      height: 100%;
+    }
+
+    div.gm4html5_login {
+      padding: 20px;
+      position: absolute;
+      border: solid 2px #000000;
+      background-color: #404040;
+      color:#00ff00;
+      border-radius: 15px;
+      box-shadow: #101010 20px 20px 40px;
+    }
+
+    div.gm4html5_cancel_button {
+      float: right;
+    }
+
+    div.gm4html5_login_button {
+      float: left;
+    }
+
+    div.gm4html5_login_header {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="gm4html5_div_class" id="gm4html5_div_id">
+    <canvas id="canvas" width="800" height="1131">
+      <p>Your browser doesn't support HTML5 canvas.</p>
+    </canvas>
+  </div>
+
+  <!-- GameMaker script -->
+  <script type="text/javascript" src="html5game/questionario depressao.js?cachebust=314214818"></script>
+  <script>
+    window.onload = function() {
+      GameMaker_Init();
+    };
+  </script>
+</body>
 </html>
