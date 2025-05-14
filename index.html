@@ -1,89 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta http-equiv="pragma" content="no-cache"/>
-  <title>Questionário</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Questionário de Depressão</title>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .gm4html5_div_class {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    canvas {
-      image-rendering: optimizeSpeed;
-      -webkit-interpolation-mode: nearest-neighbor;
-      -ms-touch-action: none;
-      touch-action: none;
-      display: block;
-      background: #000;
-    }
-
-    :-webkit-full-screen #canvas,
-    :-webkit-full-screen {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="gm4html5_div_class" id="gm4html5_div_id">
-    <canvas id="canvas" width="800" height="1131">
-      <p>Your browser doesn't support HTML5 canvas.</p>
-    </canvas>
-  </div>
-
-  <!-- GameMaker script -->
-  <script type="text/javascript" src="html5game/questionario depressao.js?cachebust=314214818"></script>
-
-  <script>
-    function resizeCanvas() {
-      const canvas = document.getElementById("canvas");
-      const container = document.getElementById("gm4html5_div_id");
-
-      const aspectRatio = 800 / 1131;
-      const windowRatio = window.innerWidth / window.innerHeight;
-
-      let newWidth, newHeight;
-
-      if (windowRatio > aspectRatio) {
-        // Janela mais larga que o jogo: limita pela altura
-        newHeight = window.innerHeight;
-        newWidth = newHeight * aspectRatio;
-      } else {
-        // Janela mais alta ou na proporção: limita pela largura
-        newWidth = window.innerWidth;
-        newHeight = newWidth / aspectRatio;
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: #000;
       }
 
-      canvas.style.width = newWidth + "px";
-      canvas.style.height = newHeight + "px";
-    }
+      #canvas {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+        display: block;
+        background: #000;
+      }
 
-    window.onload = function () {
-      GameMaker_Init();
-      resizeCanvas();
-    };
+      canvas {
+        image-rendering: optimizeSpeed;
+        -webkit-interpolation-mode: nearest-neighbor;
+        -ms-touch-action: none;
+        touch-action: none;
+      }
 
-    window.onresize = resizeCanvas;
-  </script>
-</body>
+      div.gm4html5_div_class {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="gm4html5_div_class" id="gm4html5_div_id">
+      <canvas id="canvas" width="800" height="1131">
+        Seu navegador não suporta HTML5 Canvas.
+      </canvas>
+    </div>
+
+    <script src="html5game/questionario depressao.js?cachebust"></script>
+    <script>
+      window.onload = GameMaker_Init;
+    </script>
+  </body>
 </html>
